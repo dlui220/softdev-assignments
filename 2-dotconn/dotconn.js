@@ -21,12 +21,19 @@ canvas.addEventListener('click',function(e){
 		lastY = y;
 
 		ctx.beginPath();
-		ctx.fillStyle = "#0000FF";
+		ctx.fillStyle = "red";
 		ctx.arc(lastX,lastY,10,0,2*Math.PI);
 		ctx.closePath();
 		ctx.fill();
 
 		clicks++;
+
+		if (clicks == 1){
+				var num = document.getElementById("num").innerHTML = "You have created " + clicks + " dot!";
+		} else {
+				var num = document.getElementById("num").innerHTML = "You have created " + clicks + " dots!";
+		}
+		
 });
 
 var b = document.getElementById("button").addEventListener("click",function(e) {
@@ -34,4 +41,6 @@ var b = document.getElementById("button").addEventListener("click",function(e) {
 		ctx.clearRect(0,0,1000,1000);
 		lastX = -1;
 		lastY = -1;
+		var num = document.getElementById("num").innerHTML = "There are currently no dots."
+		clicks = 0;
 });
