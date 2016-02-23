@@ -1,21 +1,16 @@
 var canvas = document.getElementById("playground");
 var ctx = canvas.getContext("2d");
 ctx.fillStyle = "red";
+
 var radius = 0;
 var growing = true;
-var animated = true;
+var requestId;
 var clicks = 0;
 
-// Found this function on stack overflow for getting random colors
-function getRandomColor() {
-    var letters = '0123456789ABCDEF'.split('');
-    var color = '#';
-    for (var i = 0; i < 6; i++ ) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
-
+// Note:
+// Speed increases when button is clicked more than once in succession,
+// and to stop animation in this case, the stop button also needs to be clicked
+// multiple times
 var drawDot = function() {
 
 		ctx.clearRect(0,0,500,500);
@@ -27,10 +22,10 @@ var drawDot = function() {
 		}
 		
 		if (radius == canvas.width/2){
-				ctx.fillStyle = getRandomColor();
+				ctx.fillStyle = '#'+(Math.random()*0xFFFFFF<<0).toString(16); 
 				growing = false;
 		} else if ( radius == 0 ){
-				ctx.fillStyle = getRandomColor();
+				ctx.fillStyle = '#'+(Math.random()*0xFFFFFF<<0).toString(16); 
 				growing = true;
 		}
 
@@ -38,19 +33,28 @@ var drawDot = function() {
 		ctx.arc(canvas.width/2,canvas.height/2,radius,0,2*Math.PI);
 		ctx.closePath();
 		ctx.fill();
-		if (animated){
-				window.requestAnimationFrame( drawDot );		
-		}
+
+};
+
+var animateDot = function() {
+		drawDot();
+		requestId = window.requestAnimationFrame(animateDot);
+		var msg = document.getElementById("message").innerHTML = "Press STOP to pause animation.";
 };
 
 var stopDot = function() {
 		if (clicks == 0){
-				animated = false;
-		} else if (clicks == 1){
+				window.cancelAnimationFrame(requestId);
+				radius = 0;
+				growing = true;
+				clicks++;
+				var msg = document.getElementById("message").innerHTML = "Press STOP again to clear the image.";
+		} else {
 				ctx.clearRect(0,0,500,500);
 				clicks = 0;
+				var msg = document.getElementById("message").innerHTML = "Press CIRCLE to begin animation!";
 		}
 };
 
-var b = document.getElementById("button").addEventListener("click",drawDot);
+var b = document.getElementById("button").addEventListener("click",animateDot);
 var s = document.getElementById("stop").addEventListener("click",stopDot);
