@@ -5,6 +5,10 @@ ctx.fillStyle = "red";
 var logo = new Image();
 logo.src = "logo_dvd.jpg";
 
+var xcor = 100;
+var ycor = 300;
+var xreverse = 1;
+var yreverse = 1;
 
 var radius = 0;
 var growing = true;
@@ -46,12 +50,23 @@ var animateDot = function() {
 
 var drawDvd = function() {
 		ctx.clearRect(0,0,500,500);
-		ctx.drawImage(logo,100,100,75,50);
+		ctx.drawImage(logo,xcor,ycor,75,50);
+		
+		xcor = xcor + (2 * xreverse);
+		ycor = ycor + (2 * yreverse);
+
+		if (xcor == (canvas.width-50) || xcor == 0){
+				xreverse = xreverse * -1;
+		};
+
+		if (ycor == (canvas.height-50) || ycor == 0){
+				yreverse = yreverse * -1;
+		};
 };
 
 var animateDvd = function() {
 		drawDvd();
-		// requestId = window.requestAnimationFrame(animateDvd);
+		requestId = window.requestAnimationFrame(animateDvd);
 };
 
 var stopAnimation = function() {
