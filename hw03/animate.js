@@ -2,6 +2,10 @@ var canvas = document.getElementById("playground");
 var ctx = canvas.getContext("2d");
 ctx.fillStyle = "red";
 
+var logo = new Image();
+logo.src = "logo_dvd.jpg";
+
+
 var radius = 0;
 var growing = true;
 var requestId;
@@ -38,12 +42,23 @@ var drawDot = function() {
 var animateDot = function() {
 		drawDot();
 		requestId = window.requestAnimationFrame(animateDot);
-		var msg = document.getElementById("message").innerHTML = "Press STOP to pause animation.";
 };
 
-var stopDot = function() {
-				window.cancelAnimationFrame(requestId);
-		};
+var drawDvd = function() {
+		ctx.clearRect(0,0,500,500);
+		ctx.drawImage(logo,100,100,75,50);
+};
 
-		var b = document.getElementById("button").addEventListener("click",animateDot);
-		var s = document.getElementById("stop").addEventListener("click",stopDot);
+var animateDvd = function() {
+		drawDvd();
+		// requestId = window.requestAnimationFrame(animateDvd);
+};
+
+var stopAnimation = function() {
+		window.cancelAnimationFrame(requestId);
+};
+
+
+var b = document.getElementById("cbutton").addEventListener("click",animateDot);
+var s = document.getElementById("stop").addEventListener("click",stopAnimation);
+var d = document.getElementById("dbutton").addEventListener("click",animateDvd);
