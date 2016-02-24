@@ -6,7 +6,7 @@ var logo = new Image();
 logo.src = "logo_dvd.jpg";
 
 var xcor = 100;
-var ycor = 300;
+var ycor = 400;
 var xreverse = 1;
 var yreverse = 1;
 
@@ -55,7 +55,7 @@ var drawDvd = function() {
 		xcor = xcor + (2 * xreverse);
 		ycor = ycor + (2 * yreverse);
 
-		if (xcor == (canvas.width-50) || xcor == 0){
+		if (xcor == (canvas.width-70) || xcor == 0){
 				xreverse = xreverse * -1;
 		};
 
