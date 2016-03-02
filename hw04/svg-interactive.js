@@ -45,5 +45,6 @@ button.addEventListener("click", function(){
     }
     else{
 				window.clearInterval(intervalID);
+				cbutton_clicked = false;
     }
 });
