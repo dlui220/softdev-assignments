@@ -1,0 +1,20 @@
+
+<html>
+	<head>
+		<title>
+			Lorem Ipsum
+		</title>
+	</head>  
+	<body>
+		<p>
+			Look... I feel like I'm running out of ways to explain this to you but once more, I shall try. This fly is a major problem for us. It will ruin our batch. And we need to destroy it and every trace of it, so we can cook. Failing that, we're dead. There's no more room for error. Not with these people.
+			<br>
+			You asked me if we were in the meth business or the money business. Neither, I’m in the empire business. I was under the impression that you had this under control. Well, that's what this is - problem solving. Skyler this is a simple division of labor - I bring in the money, you launder the money. This is what you wanted.
+			<br>
+			Who are you talking to right now? Who is it you think you see? Do you know how much I make a year? I mean, even if I told you, you wouldn't believe it. Do you know what would happen if I suddenly decided to stop going into work? 
+		</p>
+		<script src="//d3js.org/d3.v3.min.js" charset="utf-8">
+		d3.selectAll("p").style("color", "red");
+		</script>
+	</body>
+</html>
