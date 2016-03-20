@@ -19,23 +19,77 @@ var democratState = ["California", "New York", "Texas", "Florida", "Pennsylvania
 var repalloted = ["Iowa", "New Hampshire", "South Carolina", "Nevada", "Alabama", "Alaska", "Arkansas", "Georgia", "Massachussets", "Minnesota", "Oklahoma", "Tennessee", "Texas", "Vermont", "Virginia", "Kansas", "Kentucky", "Louisiana", "Maine", "Puerto Rico", "Hawaii", "Idaho", "Michigan", "Mississippi", "District of Columbia", "Wyoming", "Florida", "Illinois", "Missouri", "North Carolina", "Northern Marianas", "Ohio"];
 
 var create_graph = function(){
-    d3.select(".chart").selectAll("div").remove();
+		d3.select(".chart").selectAll("div").remove();
 		rdelegates.innerHTML = "<b>Total Number of Republican Delegates:</b> 2,472 <br> <b>Number of Alloted Delegates:</b> 1,719 <br>";
-		d3chart(repnum);
+		keyhtml.innerHTML = "<hr> Key <br>";
+		rkeychart();
+		rkeychart2();
+		d3chart(repnum,repstate,repalloted);
 		democratD3chart(democratNumber);
 };
 
-var d3chart = function(data){ 
+var rkeychart = function rkeychart() {
+    d3.select(".kchart")
+				.selectAll("div")
+				.data([0, 1])
+				.enter()
+				.append("div")
+				.style("width","100px")
+				.text(function(d) {
+						if (d == 0){
+								return "allotted";
+						} else {
+								return "unallotted";
+						}
+				})
+				.style("background-color", function(d) {
+						if (d == 0)
+								return "red";
+				})
+				.style("font-size", "15px");
+};
+
+var rkeychart2 = function rkeychart2() {
+    d3.select(".kchart2")
+				.selectAll("div")
+				.data([0, 1])
+				.enter()
+				.append("div")
+				.style("width","100px")
+				.text(function(d) {
+						if (d == 0){
+								return "allotted";
+						} else {
+								return "unallotted";
+						}
+				})
+				.style("background-color", function(d) {
+						if (d == 0)
+								return "blue";
+				})
+				.style("font-size", "15px");
+};
+
+
+var d3chart = function(data,state,allot){ 
 		d3.select(".chart")
 				.selectAll("div")
 				.data(data)
 				.enter()
 				.append("div")
-		// Add allotment coloring
-   			.style("width", function(d) 
+				.style("width", function(d) 
 							 {return d*4 + "px"; })
+		// Add allotment coloring
+				.style("background-color", function(i){
+						if (isInArray(state[i],allot)){
+								return "#7F0000;";
+						} else {
+								return "red";
+						}
+				})
+		// end allotment
 				.text(function(d,i) {
-						return repstate[i] + " - " + d;
+						return state[i] + " - " + d;
 						//console.log(d);
 				});
 };
@@ -55,4 +109,12 @@ var democratD3chart = function(data) {
 				});
 };
 
+
+function isInArray(value, array) {
+		return array.indexOf(value) > -1;
+};
+
 create_graph();
+
+console.log(isInArray("foo",repalloted));
+console.log(isInArray("Ohio",repalloted));
