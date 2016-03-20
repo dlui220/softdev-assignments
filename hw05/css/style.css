@@ -1,8 +1,17 @@
-.chart div{
-    font: 10px san-serif;
-    background-color: #7F0000;
-    text-align: right;
-    padding: 3px;
-    margin: 1px;
-    color: white;
+.chart div{ /*Derricks Graph*/
+		font: 14px san-serif;
+		background-color: #7F0000;
+		text-align: right;
+		padding: 3px;
+		margin: 1px;
+		color: white;
+}
+
+.chart2 div{  /*Rick's Graph*/
+		font: 14px san-serif;
+		background-color: blue;
+		text-align: right;
+		padding: 3px;
+		margin: 1px;
+		color: white;
 }
