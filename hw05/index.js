@@ -27,7 +27,8 @@ var d3chart = function(data){
 				.data(data)
 				.enter()
 				.append("div")
-   			.style("width", function(d)
+		// Add allotment coloring
+   			.style("width", function(d) 
 							 {return d*4 + "px"; })
 				.text(function(d,i) {
 						return repstate[i] + " - " + d;
