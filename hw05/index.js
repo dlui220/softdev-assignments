@@ -36,10 +36,11 @@ var rkeychart = function rkeychart() {
 				.append("div")
 				.style("width","100px")
 				.text(function(d) {
+						// Something here messes up
 						if (d == 0){
-								return "allotted";
-						} else {
 								return "unallotted";
+						} else {
+								return "allotted";
 						}
 				})
 				.style("background-color", function(d) {
