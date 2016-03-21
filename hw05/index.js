@@ -24,7 +24,7 @@ var create_graph = function(){
 		keyhtml.innerHTML = "<hr> Key <br>";
 		rkeychart();
 		rkeychart2();
-		d3chart(repnum,repstate,repalloted);
+		d3chart(repnum, repstate, repalloted);
 		democratD3chart(democratNumber);
 };
 
@@ -45,7 +45,7 @@ var rkeychart = function rkeychart() {
 				})
 				.style("background-color", function(d) {
 						if (d == 0)
-								return "red";
+								return "#C5746E";
 				})
 				.style("font-size", "15px");
 };
@@ -72,20 +72,20 @@ var rkeychart2 = function rkeychart2() {
 };
 
 
-var d3chart = function(data,state,allot){ 
+var d3chart = function(data, state, allot){
 		d3.select(".chart")
 				.selectAll("div")
 				.data(data)
 				.enter()
 				.append("div")
-				.style("width", function(d) 
+				.style("width", function(d)
 							 {return d*4 + "px"; })
 		// Add allotment coloring
 				.style("background-color", function(i){
-						if (isInArray(state[i],allot)){
-								return "#7F0000;";
+						if (isInArray(state[i], allot)){
+								return "#7F0000";
 						} else {
-								return "red";
+								return "#C5746E";
 						}
 				})
 		// end allotment
@@ -107,7 +107,7 @@ var democratD3chart = function(data) {
 				})
 				.text(function(d, i) {
 						return democratState[i] + " - " + d;
-				});
+				})
 };
 
 
