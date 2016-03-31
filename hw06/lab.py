@@ -19,7 +19,7 @@
 # print [ 1 if x in UC_LETTERS else 0 for x in p ]
 
 
-def checkPassword( password ):
+def checkPasswordSimple( password ):
     UC_LETTERS="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     LC_LETTERS="abcdefghijklmnopqrstuvwyxz"
     NUM="1234567890"
@@ -32,5 +32,5 @@ def checkPassword( password ):
         return True
     return False
 
-print checkPassword("HelloThisIsPassword")
-print checkPassword("HelloThisIsPassword1")
+print checkPasswordSimple("HelloThisIsPassword")
+print checkPasswordSimple("HelloThisIsPassword1")
