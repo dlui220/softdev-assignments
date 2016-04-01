@@ -1,0 +1,32 @@
+.chart div{  /* Derrick's Graph */
+    font-size: 14px;
+    background-color: #7F0000;
+    text-align: right;
+    padding: 3px;
+    margin: 1px;
+    color: white;
+    border-radius: 15px;
+}
+
+.chart2 div{  /*Rick's Graph*/
+  font-size: 14px;
+  background-color: blue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+  border-radius: 15px;
+}
+
+.writing{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.table-container{
+  padding: 2.5%;
+  border-radius: 15px;
+}
+
+body{
+    background-color: #CBCAC8;
+}
