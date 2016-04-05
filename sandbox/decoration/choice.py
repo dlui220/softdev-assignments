@@ -17,6 +17,14 @@ def get_name():
 
 print get_name()
 
-get_name = doubler(get_name)
+# get_name = doubler(get_name)
 
 print get_name()
+
+##
+## @doubler is shorthand for:
+## get_name = doubler(get_name)
+##
+## you can write functions that transform functions
+## a python decorator encapsulates a closure
+## transparently wrap functionality
