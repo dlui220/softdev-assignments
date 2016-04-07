@@ -35,7 +35,7 @@ def cartesian(a,b):
     l = []
     for i in a:
         for j in b:
-            l.append([i,j])
+            l.append((i,j))
     return l
 
 print cartesian(swag,man)
