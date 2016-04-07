@@ -1,0 +1,14 @@
+# Union
+def union(a,b):
+    l = []
+    alist = [ x for x in a if x in b ]
+    return alist
+
+yo = [1,2,3,4,5]
+bro = [3,4,5,6,7]
+print union(yo,bro)
+    
+# Intersection
+# Set Difference
+# Symmetric Difference
+# Cartesian Product
