@@ -1,7 +1,7 @@
 yo = [1,2,3]
 bro = [2,3,4]
-swag = [1,2]
-man = ["red","white"]
+swag = [1,2,3]
+man = ["red","white","blue"]
 
 ### Union ###
 def union(a,b):
