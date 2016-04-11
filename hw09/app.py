@@ -58,3 +58,4 @@ def checkPythag(a,b,c):
 
 # print func(5,20,2,405) # ---> 810000
 print checkPythag(5,12,13)
+
