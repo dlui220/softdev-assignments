@@ -18,6 +18,10 @@ def make_bold(fn):
 def make_italic(fn):
     return lambda : "<i>" + fn() + "</i>"
 
+def make_header1(fn):
+    return lambda : "<h1>" + fn() + "</h1>"
+
+@make_header1
 @make_bold
 @make_italic
 def hello():
