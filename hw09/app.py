@@ -11,21 +11,21 @@
 # closure = wrapper(foo)
 # print closure(-2,3,'hello')
 
-#a simple example of applying multiple decorators
-# def make_bold(fn):
-#     return lambda : "<b>" + fn() + "</b>"
+# a simple example of applying multiple decorators
+def make_bold(fn):
+    return lambda : "<b>" + fn() + "</b>"
 
-# def make_italic(fn):
-#     return lambda : "<i>" + fn() + "</i>"
+def make_italic(fn):
+    return lambda : "<i>" + fn() + "</i>"
 
-# @make_bold
-# @make_italic
-# def hello():
-#     return "hello world"
+@make_bold
+@make_italic
+def hello():
+    return "hello world"
 
-# helloHTML = hello()
+helloHTML = hello()
 
-# print helloHTML
+print helloHTML
 
 # Homework 9
 import time
